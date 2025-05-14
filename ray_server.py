@@ -10,11 +10,12 @@ serve.start(detached=True)
 # Database connection function
 def get_db_connection():
     return pymysql.connect(
-        host='localhost',
-        user='root',
-        password='',
-        db='library_management'
+        host='db.railway.app',              # The host provided by Railway
+        user='admin',         # The MySQL username (this should be shown on the Railway dashboard)
+        password='',       # The new password you just set
+        db='library_management'             # The database name
     )
+
 
 @ray.remote
 def process_add_book(data):
